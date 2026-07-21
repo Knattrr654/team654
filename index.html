@@ -1,11 +1,68 @@
 <!DOCTYPE html>
-<html-lang="de">
-  <head>
+<html lang="de">
+<head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEAM 654 - COMING SOON</title>
-  </head>
-  <body>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background: #111;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        #countdown {
+            margin-top: 30px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+    </style>
+</head>
+<body>
+
     <h1>Webseite bald verfügbar (:</h1>
-    <p>Neue Webseite online: 03.01.2026 - 0 Uhr</p>
-  </body>
+    <p>Neue Webseite online: <strong>03.08.2026 – 00:01 Uhr</strong></p>
+
+    <div id="countdown">Lade Countdown...</div>
+
+    <script>
+        // Zielzeit: 03.08.2026 00:01 Uhr
+        const targetDate = new Date("2026-08-03T00:01:00");
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                document.getElementById("countdown").textContent = "🚀 Die Webseite ist jetzt online!";
+                clearInterval(timer);
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            document.getElementById("countdown").textContent =
+                `${days} Tage ${hours} Std ${minutes} Min ${seconds} Sek`;
+        }
+
+        updateCountdown();
+        const timer = setInterval(updateCountdown, 1000);
+    </script>
+
+</body>
 </html>
