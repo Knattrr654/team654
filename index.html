@@ -423,6 +423,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const enterScreen = document.getElementById("enter-screen");
     const bgVideo = document.getElementById("bg-video");
     const bgAudio = document.getElementById("bg-audio");
+    const songs = [
+    "https://r2.guns.lol/abfc39e1-c5db-43dd-9cdc-07ceae8c2e42.mp3",
+    "https://r2.guns.lol/046f2ed2-b0c0-4d90-bfc2-1f291b76b8c0.mp3",
+    "https://r2.guns.lol/927bffab-a085-4592-9265-457136b2a263.mp3"
+];
+
+bgAudio.src = songs[Math.floor(Math.random() * songs.length)];
     const overlay = document.getElementById("overlay");
     const mainContent = document.getElementById("main-content");
 
