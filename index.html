@@ -207,39 +207,68 @@ body{
 
 .volume-control{
     position:fixed;
-    bottom:20px;
     left:20px;
+    bottom:20px;
 
     z-index:100;
 
-    width:40px;
-    height:40px;
-
     display:flex;
-    justify-content:center;
     align-items:center;
 
-    border-radius:50%;
-
-    background:rgba(0,0,0,.5);
-
-    backdrop-filter:blur(5px);
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(12px);
 
     border:1px solid rgba(255,255,255,.1);
+    border-radius:999px;
+
+    padding:10px;
+
+    overflow:hidden;
+
+    transition:.35s;
+}
+
+#volume-btn{
+    width:38px;
+    height:38px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:none;
+    border:none;
+
+    color:white;
 
     cursor:pointer;
-
-    transition:.2s;
 }
 
-.volume-control:hover{
-    background:rgba(255,255,255,.1);
+#volume-btn svg{
+    width:22px;
+    height:22px;
 }
 
-.volume-control svg{
-    width:20px;
-    height:20px;
-    fill:#fff;
+#volume-slider{
+
+    width:0;
+
+    opacity:0;
+
+    margin-left:0;
+
+    transition:.35s;
+
+    accent-color:white;
+}
+
+.volume-control:hover #volume-slider{
+
+    width:120px;
+
+    opacity:1;
+
+    margin-left:12px;
 }
 
 /* ================= CURSOR ================= */
@@ -345,6 +374,10 @@ a,
         document.addEventListener("DOMContentLoaded", () => {
             const enterScreen = document.getElementById("enter-screen");
             const bgVideo = document.getElementById("bg-video");
+            const volumeSlider = document.getElementById("volume-slider");
+            const volumeBtn = document.getElementById("volume-btn");
+            const volumeIcon = document.getElementById("volume-icon");
+            bgAudio.volume = 0.5;
             const bgAudio = document.getElementById("bg-audio");
             const overlay = document.getElementById("overlay");
             const mainContent = document.getElementById("main-content");
@@ -374,19 +407,32 @@ a,
             });
 
             // Handle volume toggle
-            let isMuted = false;
-            volBtn.addEventListener("click", () => {
-                isMuted = !isMuted;
-                bgAudio.muted = isMuted;
-                bgVideo.muted = isMuted;
-                
-                if (isMuted) {
-                    volIcon.innerHTML = iconVolumeOff;
-                } else {
-                    volIcon.innerHTML = iconVolumeOn;
-                }
-            });
-        });
+            const volumeSlider = document.getElementById("volume-slider");
+            const volumeBtn = document.getElementById("volume-btn");
+            const volumeIcon = document.getElementById("volume-icon");
+
+            bgAudio.volume = 0.5;
+
+            volumeSlider.addEventListener("input", function () {
+
+            const volume = this.value / 100;
+            bgAudio.volume = volume;
+
+            if (volume === 0) {
+
+            volumeIcon.innerHTML =
+            `<path fill="currentColor"
+            d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45a3.4 3.4 0 0 0 .05-.63zM3 9v6h4l5 5V4L7 9H3z"/>`;
+
+            } else {
+
+            volumeIcon.innerHTML =
+            `<path fill="currentColor"
+            d="M3 9v6h4l5 5V4L7 9H3zM16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>`;
+
+       }
+
+  });
     </script>
 </body>
 </html>
