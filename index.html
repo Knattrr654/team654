@@ -385,28 +385,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let lastVolume = 0.5;
 
+    // Startlautstärke
     bgAudio.volume = lastVolume;
+    volumeSlider.value = lastVolume * 100;
 
+    // Lautsprecher-Symbol aktualisieren
     function updateIcon() {
-
         if (bgAudio.volume === 0) {
-
             volumeIcon.innerHTML = `
-            <path fill="currentColor"
-            d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45a3.4 3.4 0 0 0 .05-.63zM3 9v6h4l5 5V4L7 9H3z"/>`;
-
+                <path fill="currentColor"
+                d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45a3.4 3.4 0 0 0 .05-.63zM3 9v6h4l5 5V4L7 9H3z"/>
+            `;
         } else {
-
             volumeIcon.innerHTML = `
-            <path fill="currentColor"
-            d="M3 9v6h4l5 5V4L7 9H3zM16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>`;
-
+                <path fill="currentColor"
+                d="M3 9v6h4l5 5V4L7 9H3zM16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+            `;
         }
-
     }
 
     updateIcon();
 
+    // Click to Enter
     enterScreen.addEventListener("click", () => {
 
         enterScreen.style.opacity = "0";
@@ -418,7 +418,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             enterScreen.style.display = "none";
 
-            bgVideo.style.opacity = "1";
             overlay.style.opacity = "1";
             mainContent.classList.add("visible");
 
@@ -426,9 +425,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    volumeSlider.addEventListener("input", function () {
+    // Lautstärkeregler
+    volumeSlider.addEventListener("input", () => {
 
-        const volume = this.value / 100;
+        const volume = volumeSlider.value / 100;
 
         bgAudio.volume = volume;
 
@@ -440,12 +440,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+    // Klick auf Lautsprecher = Mute / Unmute
     volumeBtn.addEventListener("click", () => {
 
         if (bgAudio.volume > 0) {
 
             lastVolume = bgAudio.volume;
-
             bgAudio.volume = 0;
             volumeSlider.value = 0;
 
