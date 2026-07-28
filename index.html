@@ -68,6 +68,7 @@ body{
     color:#fff;
 }
 
+
 /* ================= VIDEO ================= */
 
 .video-background{
@@ -78,9 +79,9 @@ body{
     object-fit:cover;
     object-position:center;
     z-index:0;
-    opacity:1;
     pointer-events:none;
 }
+
 
 /* ================= OVERLAY ================= */
 
@@ -89,210 +90,393 @@ body{
     inset:0;
     background:rgba(0,0,0,.4);
     z-index:1;
-    opacity:1;
-    transition:opacity .8s;
 }
+
 
 /* ================= ENTER ================= */
 
 #enter-screen{
+
     position:fixed;
     inset:0;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     background:#000;
+
     z-index:9999;
+
     cursor:pointer;
-    transition:opacity .5s ease;
+
+    transition:.5s ease;
 }
+
 
 .enter-text{
+
     font-size:1.2rem;
+
     animation:pulse 2s infinite;
+
 }
 
+
 @keyframes pulse{
-    0%{opacity:.5;}
-    50%{opacity:1;}
-    100%{opacity:.5;}
+
+    0%{
+        opacity:.5;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:.5;
+    }
+
 }
+
 
 /* ================= MAIN ================= */
 
 .container{
+
     position:relative;
+
     z-index:2;
 
     width:100%;
     height:100vh;
 
     display:flex;
+
     justify-content:center;
     align-items:center;
+
     flex-direction:column;
 
+
     opacity:0;
+
     transform:scale(.95);
 
     transition:.8s cubic-bezier(.25,.46,.45,.94);
+
 }
 
+
 .container.visible{
+
     opacity:1;
+
     transform:scale(1);
+
 }
+
 
 /* ================= CARD ================= */
 
+
 .profile-card{
+
     background:rgba(30,30,30,.45);
+
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
 
-    border:1px solid rgba(255,255,255,.1);
+
+    border:1px solid rgba(255,255,255,.12);
+
     border-radius:20px;
+
 
     padding:2.5rem 3rem;
 
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
 
+
     max-width:400px;
+
     width:90%;
 
-    box-shadow:0 8px 32px rgba(0,0,0,.3);
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,.4);
+
 }
 
+
+
 .avatar{
+
     width:110px;
     height:110px;
+
     object-fit:cover;
+
     border-radius:50%;
+
     margin-bottom:1rem;
+
 
     border:2px solid rgba(255,255,255,.2);
 
-    box-shadow:0 0 20px rgba(255,255,255,.15);
+
+    box-shadow:
+    0 0 20px rgba(255,255,255,.15);
+
 }
+
+
 
 .username{
+
     font-size:1.5rem;
+
     margin:.5rem 0;
-    text-shadow:0 0 10px rgba(255,255,255,.3);
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.3);
+
 }
+
+
 
 .description{
+
     font-size:.95rem;
+
     color:#ccc;
+
     text-align:center;
-    margin-bottom:1.5rem;
-}
-
-.views{
-    display:flex;
-    align-items:center;
-    gap:.5rem;
-
-    color:#aaa;
-    font-size:.85rem;
 
     margin-bottom:1.5rem;
+
 }
 
-.views svg{
-    width:16px;
-    height:16px;
-}
 
 /* ================= SOCIALS ================= */
 
+
 .social-links{
+
     display:flex;
+
     flex-wrap:wrap;
+
     justify-content:center;
+
     gap:1rem;
+
     width:100%;
+
 }
+
+
 
 .social-btn{
+
     width:45px;
+
     height:45px;
 
+
     display:flex;
-    align-items:center;
+
     justify-content:center;
 
-    text-decoration:none;
-    color:#fff;
-
-    background:rgba(255,255,255,.1);
-
-    border-radius:12px;
-
-    transition:.2s;
-
-    box-shadow:0 4px 15px rgba(0,0,0,.2);
-}
-
-.social-btn:hover{
-    transform:translateY(-2px);
-    background:rgba(255,255,255,.2);
-    box-shadow:0 0 15px rgba(255,255,255,.2);
-}
-
-.social-btn svg{
-    width:22px;
-    height:22px;
-    fill:currentColor;
-}
-
-/* ================= VOLUME ================= */
-
-.volume-control{
-    position:fixed;
-    left:20px;
-    bottom:20px;
-
-    z-index:100;
-
-    display:flex;
     align-items:center;
 
-    background:rgba(0,0,0,.45);
-    backdrop-filter:blur(12px);
-
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:999px;
-
-    padding:10px;
-
-    overflow:hidden;
-
-    transition:.35s;
-}
-
-#volume-btn{
-    width:38px;
-    height:38px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:none;
-    border:none;
 
     color:white;
 
-    cursor:pointer;
+    text-decoration:none;
+
+
+    background:
+    rgba(255,255,255,.1);
+
+
+    border-radius:12px;
+
+
+    transition:.25s;
+
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.25);
+
 }
 
-#volume-btn svg{
-    width:22px;
-    height:22px;
+
+
+.social-btn:hover{
+
+    transform:translateY(-3px) scale(1.05);
+
+    background:
+    rgba(255,255,255,.2);
+
 }
+
+
+
+.social-btn svg{
+
+    width:22px;
+
+    height:22px;
+
+    fill:currentColor;
+
+}
+
+
+
+/* ================= VOLUME ================= */
+
+
+.volume-control{
+
+    position:fixed;
+
+
+    left:20px;
+
+    bottom:20px;
+
+
+    z-index:200;
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+
+    padding:8px;
+
+
+    background:
+    rgba(255,255,255,.08);
+
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+
+    border-radius:18px;
+
+
+    box-shadow:
+
+    0 8px 30px rgba(0,0,0,.4),
+
+    inset 0 0 20px rgba(255,255,255,.03);
+
+
+    transition:.35s ease;
+
+}
+
+
+
+.volume-control:hover{
+
+    transform:translateY(-3px);
+
+    background:
+    rgba(255,255,255,.13);
+
+}
+
+
+
+/* Button */
+
+
+#volume-btn{
+
+    width:42px;
+
+    height:42px;
+
+
+    min-width:42px;
+
+    min-height:42px;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    border-radius:14px;
+
+
+    background:
+    rgba(255,255,255,.12);
+
+
+    border:
+    1px solid rgba(255,255,255,.15);
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+    transition:
+    .25s ease;
+
+}
+
+
+
+#volume-btn:hover{
+
+    transform:scale(1.08);
+
+    background:
+    rgba(255,255,255,.22);
+
+}
+
+
+
+#volume-btn svg{
+
+    width:22px;
+
+    height:22px;
+
+}
+
+
+
+/* Slider */
+
 
 #volume-slider{
 
@@ -300,12 +484,21 @@ body{
 
     opacity:0;
 
-    margin-left:0;
+
+    height:4px;
+
+
+    cursor:pointer;
+
+
+    accent-color:white;
+
 
     transition:.35s;
 
-    accent-color:white;
 }
+
+
 
 .volume-control:hover #volume-slider{
 
@@ -313,90 +506,177 @@ body{
 
     opacity:1;
 
-    margin-left:12px;
 }
+
+
+
+/* ================= SONG BOX ================= */
+
+
+.song-box{
+
+    position:fixed;
+
+
+    right:20px;
+
+    bottom:20px;
+
+
+    z-index:200;
+
+
+    min-width:240px;
+
+
+    padding:15px 20px;
+
+
+    background:
+    rgba(30,30,30,.45);
+
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+
+    border-radius:15px;
+
+
+    box-shadow:
+
+    0 8px 32px rgba(0,0,0,.35);
+
+}
+
+
+
+.song-title{
+
+    font-size:.7rem;
+
+    color:#aaa;
+
+    margin-bottom:5px;
+
+}
+
+
+
+.song-name{
+
+    font-size:1rem;
+
+    font-weight:500;
+
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+
 
 /* ================= CURSOR ================= */
 
+
 body{
+
     cursor:url('https://r2.guns.lol/95e74d6c-101a-4bc2-834a-aab5cb66f2ca.png'),auto;
+
 }
+
 
 a,
 .volume-control,
 #enter-screen{
+
     cursor:url('https://r2.guns.lol/95e74d6c-101a-4bc2-834a-aab5cb66f2ca.png'),pointer;
+
 }
 
-/* ================= SONG BOX ================= */
 
-.song-box{
-    position:fixed;
-    right:20px;
-    bottom:20px;
 
-    z-index:200;
+/* ================= MOBILE ================= */
 
-    background:rgba(30,30,30,.45);
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
 
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:15px;
+@media(max-width:600px){
 
-    padding:15px 20px;
 
-    min-width:220px;
+    .profile-card{
 
-    box-shadow:0 8px 32px rgba(0,0,0,.35);
+        padding:2rem;
 
-    color:white;
+    }
 
-    transition:.3s;
-}
-
-.song-title{
-    font-size:.75rem;
-    color:#aaa;
-    margin-bottom:5px;
-}
-
-.song-name{
-    font-size:1rem;
-    font-weight:500;
-}
-
-@media (max-width:600px){
 
     .song-box{
+
         top:20px;
+
         right:12px;
+
         bottom:auto;
 
+
         width:170px;
+
         min-width:auto;
+
 
         padding:10px 14px;
 
+
         border-radius:12px;
 
-        z-index:500;
     }
+
+
 
     .song-title{
+
         font-size:.65rem;
+
     }
+
+
 
     .song-name{
+
         font-size:.85rem;
 
-        white-space:nowrap;
-        overflow:hidden;
-        text-overflow:ellipsis;
     }
+
+
+
+    .volume-control{
+
+        left:12px;
+
+        bottom:12px;
+
+    }
+
+
+
+    #volume-slider{
+
+        display:none;
+
+    }
+
+
 }
-        
- </style>
+</style>
 </head>
 <body>
 
@@ -497,121 +777,295 @@ a,
     <script>
 document.addEventListener("DOMContentLoaded", () => {
 
+
     const enterScreen = document.getElementById("enter-screen");
+
     const bgVideo = document.getElementById("bg-video");
+
     const bgAudio = document.getElementById("bg-audio");
-    const songs = [
-    {
-        url:"https://r2.guns.lol/abfc39e1-c5db-43dd-9cdc-07ceae8c2e42.mp3",
-        name:"Heroes (we could be) -> Alesso, Tove Lo"
-    },
-    {
-        url:"https://r2.guns.lol/046f2ed2-b0c0-4d90-bfc2-1f291b76b8c0.mp3",
-        name:"Close Eyes - Slowed + Reverb -> DVRST"
-    },
-    {
-        url:"https://r2.guns.lol/927bffab-a085-4592-9265-457136b2a263.mp3",
-        name:"Fata Morgana -> Nina Chuba (OsTEKKe Remix)"
-    }
-];
-
-let lastSong = localStorage.getItem("lastSong");
-let randomSong;
-
-do {
-    randomSong = songs[Math.floor(Math.random() * songs.length)];
-} while (randomSong.url === lastSong && songs.length > 1);
-
-localStorage.setItem("lastSong", randomSong.url);
-
-bgAudio.src = randomSong.url;
 
 
-// Song Name anzeigen
-document.getElementById("song-name").textContent = randomSong.name;
     const overlay = document.getElementById("overlay");
+
     const mainContent = document.getElementById("main-content");
 
+
     const volumeSlider = document.getElementById("volume-slider");
+
     const volumeBtn = document.getElementById("volume-btn");
+
     const volumeIcon = document.getElementById("volume-icon");
+
+
+    const songName = document.getElementById("song-name");
+
+
+
+    /* ================= SONGS ================= */
+
+
+    const songs = [
+
+        {
+            url:"https://r2.guns.lol/abfc39e1-c5db-43dd-9cdc-07ceae8c2e42.mp3",
+            name:"Heroes (we could be) → Alesso, Tove Lo"
+        },
+
+        {
+            url:"https://r2.guns.lol/046f2ed2-b0c0-4d90-bfc2-1f291b76b8c0.mp3",
+            name:"Close Eyes (Slowed + Reverb) → DVRST"
+        },
+
+        {
+            url:"https://r2.guns.lol/927bffab-a085-4592-9265-457136b2a263.mp3",
+            name:"Fata Morgana → Nina Chuba (OsTEKKe Remix)"
+        }
+
+    ];
+
+
+
+    let lastSong = localStorage.getItem("lastSong");
+
+
+    let randomSong;
+
+
+    do {
+
+        randomSong = songs[Math.floor(Math.random() * songs.length)];
+
+    }
+
+    while(
+        randomSong.url === lastSong 
+        && songs.length > 1
+    );
+
+
+
+    localStorage.setItem(
+        "lastSong",
+        randomSong.url
+    );
+
+
+
+    bgAudio.src = randomSong.url;
+
+
+    songName.textContent = randomSong.name;
+
+
+
+    /* ================= VOLUME ================= */
+
 
     let lastVolume = 0.5;
 
-    // Startlautstärke
+
+
     bgAudio.volume = lastVolume;
+
     volumeSlider.value = lastVolume * 100;
 
-    // Lautsprecher-Symbol aktualisieren
-    function updateIcon() {
-        if (bgAudio.volume === 0) {
-            volumeIcon.innerHTML = `
-                <path fill="currentColor"
-                d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45a3.4 3.4 0 0 0 .05-.63zM3 9v6h4l5 5V4L7 9H3z"/>
-            `;
-        } else {
-            volumeIcon.innerHTML = `
-                <path fill="currentColor"
-                d="M3 9v6h4l5 5V4L7 9H3zM16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
-            `;
-        }
-    }
+
+
+    updateVolumeSize();
 
     updateIcon();
 
-    // Click to Enter
-    enterScreen.addEventListener("click", () => {
 
-        enterScreen.style.opacity = "0";
 
-        bgVideo.play().catch(console.error);
-        bgAudio.play().catch(console.error);
 
-        setTimeout(() => {
+    function updateVolumeSize(){
 
-            enterScreen.style.display = "none";
 
-            overlay.style.opacity = "1";
-            mainContent.classList.add("visible");
+        const size = 38 + (bgAudio.volume * 10);
 
-        }, 500);
 
-    });
 
-    // Lautstärkeregler
-    volumeSlider.addEventListener("input", () => {
+        volumeBtn.style.width = size + "px";
 
-        const volume = volumeSlider.value / 100;
+        volumeBtn.style.height = size + "px";
 
-        bgAudio.volume = volume;
+        volumeBtn.style.minWidth = size + "px";
 
-        if (volume > 0) {
-            lastVolume = volume;
-        }
+        volumeBtn.style.minHeight = size + "px";
 
-        updateIcon();
 
-    });
+    }
 
-    // Klick auf Lautsprecher = Mute / Unmute
-    volumeBtn.addEventListener("click", () => {
 
-        if (bgAudio.volume > 0) {
 
-            lastVolume = bgAudio.volume;
-            bgAudio.volume = 0;
-            volumeSlider.value = 0;
+
+    function updateIcon(){
+
+
+        if(bgAudio.volume === 0){
+
+
+            volumeIcon.innerHTML = `
+
+            <path fill="currentColor"
+            d="M3 9v6h4l5 5V4L7 9H3z"/>
+
+
+            <path fill="currentColor"
+            d="M17 8L15.6 9.4L17.2 11L15.6 12.6L17 14L18.6 12.4L20.2 14L21.6 12.6L20 11L21.6 9.4L20.2 8L18.6 9.6L17 8Z"/>
+
+            `;
+
 
         } else {
 
-            bgAudio.volume = lastVolume;
-            volumeSlider.value = lastVolume * 100;
+
+            volumeIcon.innerHTML = `
+
+            <path fill="currentColor"
+            d="M3 9v6h4l5 5V4L7 9H3z
+
+            M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+
+            `;
+
 
         }
 
-        updateIcon();
+
+    }
+
+
+
+
+
+    /* ================= ENTER ================= */
+
+
+    enterScreen.addEventListener("click", () => {
+
+
+        enterScreen.style.opacity = "0";
+
+
+
+        bgVideo.play()
+        .catch(err => console.log(err));
+
+
+
+        bgAudio.play()
+        .catch(err => console.log(err));
+
+
+
+        setTimeout(() => {
+
+
+            enterScreen.style.display = "none";
+
+
+            overlay.style.opacity = "1";
+
+
+            mainContent.classList.add("visible");
+
+
+        },500);
+
+
 
     });
+
+
+
+
+
+
+    /* ================= SLIDER ================= */
+
+
+    volumeSlider.addEventListener("input", () => {
+
+
+        const volume = volumeSlider.value / 100;
+
+
+
+        bgAudio.volume = volume;
+
+
+
+        if(volume > 0){
+
+            lastVolume = volume;
+
+        }
+
+
+
+        updateIcon();
+
+        updateVolumeSize();
+
+
+    });
+
+
+
+
+
+
+
+    /* ================= MUTE BUTTON ================= */
+
+
+    volumeBtn.addEventListener("click", () => {
+
+
+
+        if(bgAudio.volume > 0){
+
+
+
+            lastVolume = bgAudio.volume;
+
+
+
+            bgAudio.volume = 0;
+
+
+
+            volumeSlider.value = 0;
+
+
+
+        }
+
+        else{
+
+
+            bgAudio.volume = lastVolume;
+
+
+
+            volumeSlider.value = lastVolume * 100;
+
+
+        }
+
+
+
+        updateIcon();
+
+        updateVolumeSize();
+
+
+
+    });
+
+
+
 
 });
 </script>
