@@ -337,7 +337,7 @@ a,
 
     z-index:200;
 
-    background:rgba(255,255,255,.08);
+    background:rgba(30,30,30,.45);
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
 
@@ -369,15 +369,18 @@ a,
 @media (max-width:600px){
 
     .song-box{
+        top:20px;
         right:12px;
-        bottom:80px; /* über der Volume-Box */
-        
-        min-width:auto;
+        bottom:auto;
+
         width:170px;
+        min-width:auto;
 
         padding:10px 14px;
 
         border-radius:12px;
+
+        z-index:500;
     }
 
     .song-title{
