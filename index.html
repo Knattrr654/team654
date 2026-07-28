@@ -43,7 +43,7 @@
     "description": "Team 654, die den Content der Zukunft machen.",
     "sameAs": [
       "https://www.youtube.com/@654_team",
-      "https://www.instagram.com/654.knatter"
+      "https://www.instagram.com/654.knatter",
       "https://twitch.tv/team654"
     ]
   }
@@ -429,7 +429,16 @@ document.addEventListener("DOMContentLoaded", () => {
     "https://r2.guns.lol/927bffab-a085-4592-9265-457136b2a263.mp3"
 ];
 
-bgAudio.src = songs[Math.floor(Math.random() * songs.length)];
+let lastSong = localStorage.getItem("lastSong");
+let randomSong;
+
+do {
+    randomSong = songs[Math.floor(Math.random() * songs.length)];
+} while (randomSong === lastSong && songs.length > 1);
+
+localStorage.setItem("lastSong", randomSong);
+
+bgAudio.src = randomSong;
     const overlay = document.getElementById("overlay");
     const mainContent = document.getElementById("main-content");
 
