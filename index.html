@@ -456,6 +456,14 @@ a,
         value="50">
     </div>
 
+    <!-- Song Anzeige -->
+<div class="song-box">
+    <div class="song-title">NOW PLAYING</div>
+    <div class="song-name" id="song-name">
+        Unknown
+    </div>
+</div>
+
     <script>
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -463,9 +471,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const bgVideo = document.getElementById("bg-video");
     const bgAudio = document.getElementById("bg-audio");
     const songs = [
-    "https://r2.guns.lol/abfc39e1-c5db-43dd-9cdc-07ceae8c2e42.mp3",
-    "https://r2.guns.lol/046f2ed2-b0c0-4d90-bfc2-1f291b76b8c0.mp3",
-    "https://r2.guns.lol/927bffab-a085-4592-9265-457136b2a263.mp3"
+    {
+        url:"https://r2.guns.lol/abfc39e1-c5db-43dd-9cdc-07ceae8c2e42.mp3",
+        name:"Heroes (we could be) -> Alesso, Tove Lo"
+    },
+    {
+        url:"https://r2.guns.lol/046f2ed2-b0c0-4d90-bfc2-1f291b76b8c0.mp3",
+        name:"Close Eyes - Slowed + Reverb -> DVRST"
+    },
+    {
+        url:"https://r2.guns.lol/927bffab-a085-4592-9265-457136b2a263.mp3",
+        name:"Fata Morgana -> Nina Chuba (OsTEKKe Remix)"
+    }
 ];
 
 let lastSong = localStorage.getItem("lastSong");
@@ -473,11 +490,15 @@ let randomSong;
 
 do {
     randomSong = songs[Math.floor(Math.random() * songs.length)];
-} while (randomSong === lastSong && songs.length > 1);
+} while (randomSong.url === lastSong && songs.length > 1);
 
-localStorage.setItem("lastSong", randomSong);
+localStorage.setItem("lastSong", randomSong.url);
 
-bgAudio.src = randomSong;
+bgAudio.src = randomSong.url;
+
+
+// Song Name anzeigen
+document.getElementById("song-name").textContent = randomSong.name;
     const overlay = document.getElementById("overlay");
     const mainContent = document.getElementById("main-content");
 
